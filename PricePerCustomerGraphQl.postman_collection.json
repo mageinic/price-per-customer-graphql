@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "cbf5d689-ed81-45db-8846-fd3221b2abfd",
+		"name": "PricePerCustomerGraphQl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "storeConfig",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    storeConfig{\n        pricepercustomer_enable,\n        customer_price_link_name,\n        customer_price_page_title,\n        customer_price_show_link_in_top,\n        customer_price_Show_link_footer,\n        customer_price_page_layout\n    }\n}\n\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/graphql",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PricePerCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "\n{\n  PricePerCustomer(filter: {\n    entity_id: {eq: \"1\"},\n    customer_id: {eq: \"1\"},\n    product_id: {eq: \"1\"} \n  }, pageSize: 6, currentPage: 1) {\n    pricePerCustomerList {\n      customer_id\n      price\n      product_id\n      quantity\n    }\n    total_count\n    total_pages\n  }\n}\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/graphql",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductCustomPrice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiIxIiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOjIsInV0eXBpZCI6MywiaWF0IjoxNjk1ODk5ODYwLCJleHAiOjE2OTU5MDM0NjB9.36yVH4qdIMWIsL4C6EiUZWU9CT3KgDC6wsMnptxfseE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n  products(filter: { sku: { eq: \"24-MB01\" }}) {\n    total_count \n    items {              \n      price_range {          \n        minimum_price {          \n        final_price {\n            value\n            currency\n          }\n        }\n        maximum_price {\n         final_price {\n            value\n            currency\n          }\n        }\n      }  \n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/graphql",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
