@@ -1,11 +1,11 @@
 {
-    "name": "mageinic/pricepercustomergraphql",
+    "name": "mageinic/price-per-customer-graphql",
     "description": "Price Per Customer GraphQL is a part of MageINIC Price Per Customer extension that adds GraphQL features. This extension extends Price Per Customer definitions.",
     "require": {
         "php": "^8.0",
         "magento/module-graph-ql": "100.4.*",
         "mageinic/core": "1.0.*",
-        "mageinic/pricepercustomer": "1.0.*",
+        "mageinic/price-per-customer": "1.0.*",
         "magento/module-catalog" : "104.0.*",
         "magento/module-customer": "103.0.*"
     },

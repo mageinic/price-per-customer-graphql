@@ -7,7 +7,7 @@
 Run the following command in Magento 2 root folder:
 
 ```
-composer require mageinic/pricepercustomergraphql
+composer require mageinic/price-per-customer-graphql
 
 php bin/magento maintenance:enable
 php bin/magento setup:upgrade
@@ -22,7 +22,7 @@ Magento 2 Price Per Customer GraphQL requires installing [MageINIC Price Per Cus
 
 **Or Install via composer [Recommend]**
 ```
-composer require mageinic/pricepercustomer
+composer require mageinic/price-per-customer
 ```
 
 ## 2. How to use
